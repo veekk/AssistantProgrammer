@@ -34,24 +34,19 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(MViewHolder holder, final int position) {
 
-
-        holder.textView.setText(items.get(position).text);
-
-//        View v = LayoutInflater.from(context).inflate(R.layout.button, ViewGroup);
+        holder.textView.setText(items.get(currentID).getText());
         holder.linearLayout.removeAllViews();
-        for (i = 0; i<items.get(position).relations.length; i++){
-            String text;
-            Button mBtn = new Button(context);
-            mBtn.setText("");
-            text = items.get(items.get(currentID).relations[i]).text.toString();
+        for (i = 0; i<items.get(currentID).relations.length; i++){
+            final Button mBtn = new Button(context);
+            String text = items.get(items.get(currentID).relations[i]).text.toString();
             mBtn.setText(text);
+            mBtn.setId(items.get(items.get(currentID).relations[i]).id);
             mBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int[] relations = items.get(currentID).getRelations();
-                    currentID = relations[i-1];
+                    currentID = mBtn.getId();
                     currentItems.add(items.get(currentID));
-                    notifyItemChanged(i-1);
+                    notifyItemInserted(0);
                 }
             });
             LinearLayout.LayoutParams params = new
@@ -91,8 +86,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public RecyclerViewAdapter(List<Item> items, Context context){
         this.items = items;
         this.context = context;
-        currentItems.clear();
-        currentItems.add(items.get(0));
+        currentItems.add(items.get(currentID));
     }
 
 

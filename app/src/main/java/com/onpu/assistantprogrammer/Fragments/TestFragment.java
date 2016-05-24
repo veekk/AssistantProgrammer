@@ -35,12 +35,12 @@ public class TestFragment extends Fragment {
         List<Item> items = new ArrayList<>();
         items.clear();
         items.add(new Item(0, "Зачем хотите изучить программирование?", new int[]{1, 2, 3, 4, 5, 6}));
-        items.add(new Item(1, "Для детей", new int[]{0}));
+        items.add(new Item(1, "Для детей", new int[]{0, 4, 3}));
         items.add(new Item(2, "Заработать", new int[]{0}));
         items.add(new Item(3, "Я не знаю, выберите за меня", new int[]{0}));
         items.add(new Item(4, "Поразвлечься", new int[]{0}));
         items.add(new Item(5, "Интересно", new int[]{0}));
-        items.add(new Item(6, "Саморазвитие", new int[]{0}));
+        items.add(new Item(6, "Саморазвитие", new int[]{0, 3,2 }));
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(items, getActivity());
         mRecView.setAdapter(adapter);
         return rootView;
