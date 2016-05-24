@@ -23,6 +23,13 @@
         android:id="@+id/textView"
         android:padding="18dp" />
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/lLay3"></LinearLayout>
+
 </LinearLayout>
 
 </android.support.v7.widget.CardView>

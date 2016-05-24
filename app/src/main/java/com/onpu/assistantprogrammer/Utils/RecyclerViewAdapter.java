@@ -32,7 +32,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.textView.setText(items.get(position).text);
 
 //        View v = LayoutInflater.from(context).inflate(R.layout.button, ViewGroup);
-      //  holder.linearLayout.removeAllViews();
+        holder.linearLayout.removeAllViews();
         for (int i = 0; i<items.get(position).relations.length; i++){
             String text;
             Button mBtn = new Button(context);
@@ -62,7 +62,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         MViewHolder(View itemView){
             super(itemView);
-            linearLayout = (LinearLayout)itemView.findViewById(R.id.lLay2);
+            linearLayout = (LinearLayout)itemView.findViewById(R.id.lLay3);
             mRecView = (RecyclerView)itemView.findViewById(R.id.mRecView);
             textView = (TextView) itemView.findViewById(R.id.textView);
            // LinearLayout.LayoutParams params = new LinearLayout.LayoutParams()
