@@ -19,6 +19,9 @@ import java.util.List;
  */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MViewHolder>{
     public List<Item> items;
+    public List<Item> currentItems;
+    int currentID = 0;
+    int i;
     Context context;
     @Override
     public MViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -28,17 +31,25 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     @Override
-    public void onBindViewHolder(MViewHolder holder, int position) {
+    public void onBindViewHolder(MViewHolder holder, final int position) {
+
+
         holder.textView.setText(items.get(position).text);
 
 //        View v = LayoutInflater.from(context).inflate(R.layout.button, ViewGroup);
         holder.linearLayout.removeAllViews();
-        for (int i = 0; i<items.get(position).relations.length; i++){
+        for (i = 0; i<items.get(position).relations.length; i++){
             String text;
             Button mBtn = new Button(context);
             mBtn.setText("");
             text = items.get(items.get(position).relations[i]).text.toString();
             mBtn.setText(text);
+            mBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    currentItems.add(items.get(items.get(position).relations[i]));
+                }
+            });
             LinearLayout.LayoutParams params = new
                     LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             params.weight=1;
@@ -51,7 +62,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public int getItemCount() {
-       return items.size();
+       return currentItems.size();
     }
 
     public static class MViewHolder extends RecyclerView.ViewHolder {
@@ -76,7 +87,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public RecyclerViewAdapter(List<Item> items, Context context){
         this.items = items;
         this.context = context;
-
+        currentItems.add(items.get(0));
     }
 
 
