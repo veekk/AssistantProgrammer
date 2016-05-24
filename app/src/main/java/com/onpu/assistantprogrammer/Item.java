@@ -17,6 +17,16 @@ public class Item {
         this.relations = relations;
     }
 
+    public int getId() {
+        return id;
+    }
 
+    public String getText() {
 
+        return text;
+    }
+
+    public int[] getRelations() {
+        return relations;
+    }
 }

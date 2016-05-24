@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.onpu.assistantprogrammer.Item;
 import com.onpu.assistantprogrammer.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,7 +20,7 @@ import java.util.List;
  */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MViewHolder>{
     public List<Item> items;
-    public List<Item> currentItems;
+    public List<Item> currentItems = new ArrayList<>();
     int currentID = 0;
     int i;
     Context context;
@@ -42,12 +43,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             String text;
             Button mBtn = new Button(context);
             mBtn.setText("");
-            text = items.get(items.get(position).relations[i]).text.toString();
+            text = items.get(items.get(currentID).relations[i]).text.toString();
             mBtn.setText(text);
             mBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    currentItems.add(items.get(items.get(position).relations[i]));
+                    int[] relations = items.get(currentID).getRelations();
+                    currentID = relations[i];
+                    currentItems.add(items.get(currentID));
+                    notifyItemChanged(i);
                 }
             });
             LinearLayout.LayoutParams params = new
@@ -87,6 +91,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public RecyclerViewAdapter(List<Item> items, Context context){
         this.items = items;
         this.context = context;
+        currentItems.clear();
         currentItems.add(items.get(0));
     }
 
