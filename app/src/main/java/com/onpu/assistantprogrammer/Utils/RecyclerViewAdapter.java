@@ -49,9 +49,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 @Override
                 public void onClick(View v) {
                     int[] relations = items.get(currentID).getRelations();
-                    currentID = relations[i];
+                    currentID = relations[i-1];
                     currentItems.add(items.get(currentID));
-                    notifyItemChanged(i);
+                    notifyItemChanged(i-1);
                 }
             });
             LinearLayout.LayoutParams params = new
