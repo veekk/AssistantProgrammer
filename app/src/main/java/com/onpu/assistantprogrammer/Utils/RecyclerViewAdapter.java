@@ -46,7 +46,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 public void onClick(View v) {
                     currentID = mBtn.getId();
                     currentItems.add(items.get(currentID));
-                    notifyItemInserted(0);
+                    notifyDataSetChanged();
                 }
             });
             LinearLayout.LayoutParams params = new
@@ -61,7 +61,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public int getItemCount() {
-       return currentItems.size();
+       return 1;//currentItems.size();
     }
 
     public static class MViewHolder extends RecyclerView.ViewHolder {
