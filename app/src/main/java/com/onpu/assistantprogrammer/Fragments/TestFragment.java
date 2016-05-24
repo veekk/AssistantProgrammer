@@ -88,8 +88,8 @@ public class TestFragment extends Fragment {
         items.add(new Item(51, "Facebook", new int[]{}));
         items.add(new Item(52, "Windows", new int[]{}));
         items.add(new Item(53, "Apple", new int[]{}));
-        items.add(new Item(54, "Google", new int[]{}));
-        //items.add(new Item(, "", new int[]{}));
+        items.add(new Item(54, "Google  ", new int[]{}));
+        items.add(new Item(55, "Корпорацию", new int[]{45}));
 
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(items, getActivity());
         mRecView.setAdapter(adapter);
