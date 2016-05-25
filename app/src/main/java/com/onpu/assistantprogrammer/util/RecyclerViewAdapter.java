@@ -107,7 +107,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
                             AlertDialog.Builder builder = new AlertDialog.Builder(context);
                             ImageView imgView = new ImageView(context);
-                            imgView.setPadding(8,8,8,8);
+                            int padding_in_dp = 8;
+                            final float scale = context.getResources().getDisplayMetrics().density;
+                            int padding_in_px = (int) (padding_in_dp * scale + 0.5f);
+                            imgView.setPadding(padding_in_px, padding_in_px, padding_in_px, padding_in_px);
                             imgView.setImageResource(image);
                             builder.setTitle("Язык программирования для Вас - "+language)
                                     .setView(imgView)
@@ -145,19 +148,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                                                     break;
                                             }
                                             AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                                            TextView textView = new TextView(context);
-                                            int padding_in_dp = 8;
-                                            final float scale = context.getResources().getDisplayMetrics().density;
-                                            int padding_in_px = (int) (padding_in_dp * scale + 0.5f);
-                                            textView.setPadding(padding_in_px, padding_in_px, padding_in_px, padding_in_px);
-                                            textView.setLinksClickable(true);
-                                            textView.setTextSize(18);
-                                            textView.setAutoLinkMask(Linkify.WEB_URLS);
-                                            textView.setText(languages.get(myID).descr);
                                             builder.setCancelable(true)
                                                     .setIcon(languages.get(myID).img)
                                                     .setTitle(languages.get(myID).name)
-                                                    .setView(textView)
+                                                    .setMessage(languages.get(myID).descr)
                                                     .setPositiveButton("Видео", new DialogInterface.OnClickListener() {
                                                         @Override
                                                         public void onClick(DialogInterface dialog, int which) {

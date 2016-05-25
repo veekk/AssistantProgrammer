@@ -46,21 +46,11 @@ public class LanguageMenuAdapter extends RecyclerView.Adapter<LanguageMenuAdapte
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context); //Определяем диалог
-                TextView textView = new TextView(context); //программно рисуем TextView
-                //Задаём его параметры
-                int padding_in_dp = 8;
-                final float scale = context.getResources().getDisplayMetrics().density;
-                int padding_in_px = (int) (padding_in_dp * scale + 0.5f);
-                textView.setPadding(padding_in_px, padding_in_px, padding_in_px, padding_in_px);
-                textView.setLinksClickable(true);
-                textView.setTextSize(18);
-                textView.setAutoLinkMask(Linkify.WEB_URLS);
-                textView.setText(languages.get(position).descr);
                 //Задаём параметры диалога
                 builder.setCancelable(true)
+                        .setMessage(languages.get(position).descr)
                         .setIcon(languages.get(position).img)
                         .setTitle(languages.get(position).name)
-                        .setView(textView)
                         .setPositiveButton("Видео", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
