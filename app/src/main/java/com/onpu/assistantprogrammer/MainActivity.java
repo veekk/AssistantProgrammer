@@ -4,7 +4,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.onpu.assistantprogrammer.fragment.MenuFragment;
+import com.onpu.assistantprogrammer.model.Language;
 import com.onpu.assistantprogrammer.util.CustomFragmentManager;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -14,6 +14,7 @@ public class CustomFragmentManager {
 
     private Activity activity;
     private FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
     private int containerResId;
 
     private CustomFragmentManager(){
@@ -40,13 +41,12 @@ public class CustomFragmentManager {
 
     public void setFragment(Fragment fragment, boolean addToBackStack) {
 
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(containerResId, fragment);
 
         if (addToBackStack) {
             fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.add(containerResId, fragment);
-        } else     fragmentTransaction.replace(containerResId, fragment);
+        }
 
         fragmentTransaction.commit();
     }

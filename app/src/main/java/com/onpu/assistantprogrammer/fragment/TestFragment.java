@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.onpu.assistantprogrammer.model.Item;
 import com.onpu.assistantprogrammer.R;
+import com.onpu.assistantprogrammer.model.Language;
 import com.onpu.assistantprogrammer.util.CustomFragmentManager;
 import com.onpu.assistantprogrammer.util.RecyclerViewAdapter;
 
@@ -101,9 +102,22 @@ public class TestFragment extends Fragment {
         items.add(new Item(64, "Показать результат!", new int[] {}));
 
 
+        List<Language> languages = new ArrayList<>();
+        languages.add(new Language(0, "Python", "pyth фловралофыралофыраоф", "https://py-info.com", "https://py-video.com"));
+        languages.add(new Language(1, "JavaScript", "js фловралофыралофыраоф", "https://js-info.com", "https://js-video.com"));
+        languages.add(new Language(2, "Java", "java фловралофыралофыраоф", "https://java-info.com", "https://java-video.com"));
+        languages.add(new Language(3, "C#", "c# фловралофыралофыраоф", "https://csh-info.com", "https://csh-video.com"));
+        languages.add(new Language(4, "C", "c фловралофыралофыраоф", "https://c-info.com", "https://c-video.com"));
+        languages.add(new Language(5, "Ruby", "ruby фловралофыралофыраоф", "https://ruby-info.com", "https://ruby-video.com"));
+        languages.add(new Language(6, "PHP", "php фловралофыралофыраоф", "https://php-info.com", "https://php-video.com"));
+        languages.add(new Language(7, "Objective-C", "obj-c фловралофыралофыраоф", "https://objc-info.com", "https://objc-video.com"));
+        languages.add(new Language(8, "C++", "c++ фловралофыралофыраоф", "https://cpp-info.com", "https://cpp-video.com"));
 
 
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(items, getActivity());
+
+
+
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(items, languages, getActivity());
         mRecView.setAdapter(adapter);
         return rootView;
     }

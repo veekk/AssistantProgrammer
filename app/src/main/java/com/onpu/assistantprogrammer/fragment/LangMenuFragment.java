@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.onpu.assistantprogrammer.MainActivity;
 import com.onpu.assistantprogrammer.R;
 import com.onpu.assistantprogrammer.model.Language;
 import com.onpu.assistantprogrammer.util.CustomFragmentManager;
@@ -40,7 +41,6 @@ public class LangMenuFragment extends Fragment{
         languages.add(new Language(6, "PHP", "php фловралофыралофыраоф", "https://php-info.com", "https://php-video.com"));
         languages.add(new Language(7, "Objective-C", "obj-c фловралофыралофыраоф", "https://objc-info.com", "https://objc-video.com"));
         languages.add(new Language(8, "C++", "c++ фловралофыралофыраоф", "https://cpp-info.com", "https://cpp-video.com"));
-
         LanguageMenuAdapter adapter = new LanguageMenuAdapter(languages, getActivity());
         langRV.setAdapter(adapter);
         return rootView;
