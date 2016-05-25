@@ -28,13 +28,14 @@ public class TestFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_test, null);
+        rootView = inflater.inflate(R.layout.fragment_test, null);//Инфлейтим наш лэйаут
 
-        RecyclerView mRecView = (RecyclerView)rootView.findViewById(R.id.mRecView);
-        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
-        mRecView.setLayoutManager(llm);
-        List<Item> items = new ArrayList<>();
+        RecyclerView mRecView = (RecyclerView)rootView.findViewById(R.id.mRecView); // Определяем RecyclerView
+        LinearLayoutManager llm = new LinearLayoutManager(getActivity());// Определяем llm
+        mRecView.setLayoutManager(llm);//Присваиваем llm RecyclerView
+        List<Item> items = new ArrayList<>();//Создаём навый список пунктов
         items.clear();
+        //заполняем пункты по форме (id, текст, связи)
         items.add(new Item(0, "Зачем хотите изучить программирование?", new int[]{1, 2, 3, 4, 5, 6}));
         items.add(new Item(1, "Для детей", new int[]{7}));
         items.add(new Item(2, "Заработать", new int[]{8, 32}));
@@ -102,7 +103,9 @@ public class TestFragment extends Fragment {
         items.add(new Item(64, "Показать результат!", new int[] {}));
 
 
-        List<Language> languages = new ArrayList<>();
+        List<Language> languages = new ArrayList<>();//Создаём навый список языков
+        //Забиваем наш список языков в формате (id, название языка, описание, ссылка на инфо, ссылка на видео) для диалогов
+        //вызываемых после результатов теста
         languages.add(new Language(0, "Python", "pyth фловралофыралофыраоф", "https://py-info.com", "https://py-video.com"));
         languages.add(new Language(1, "JavaScript", "js фловралофыралофыраоф", "https://js-info.com", "https://js-video.com"));
         languages.add(new Language(2, "Java", "java фловралофыралофыраоф", "https://java-info.com", "https://java-video.com"));
@@ -117,8 +120,8 @@ public class TestFragment extends Fragment {
 
 
 
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(items, languages, getActivity());
-        mRecView.setAdapter(adapter);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(items, languages, getActivity()); //определяем адаптер
+        mRecView.setAdapter(adapter);//сетим адаптер
         return rootView;
     }
 

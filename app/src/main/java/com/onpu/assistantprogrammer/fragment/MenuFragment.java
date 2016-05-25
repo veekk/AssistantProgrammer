@@ -25,32 +25,33 @@ public class MenuFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_menu, null);
-        btnTest = (Button) rootView.findViewById(R.id.btnTest);
-        btnLinks = (Button) rootView.findViewById(R.id.btnLinks);
-        btnAbout = (Button) rootView.findViewById(R.id.btnAbout);
-        btnTest.setOnClickListener(new View.OnClickListener() {
+        rootView = inflater.inflate(R.layout.fragment_menu, null); //Инфлейтим наш лэйаут
+        btnTest = (Button) rootView.findViewById(R.id.btnTest); // Определяем кнопки
+        btnLinks = (Button) rootView.findViewById(R.id.btnLinks); // Определяем кнопки
+        btnAbout = (Button) rootView.findViewById(R.id.btnAbout); // Определяем кнопки
+        btnTest.setOnClickListener(new View.OnClickListener() { //Присваем действие на нажатие
             @Override
             public void onClick(View v) {
-                fragmentManager.setFragment(new TestFragment(), true);
+                fragmentManager.setFragment(new TestFragment(), true); //Сеттим фрагмент с тестом
             }
         });
-        btnLinks.setOnClickListener(new View.OnClickListener() {
+        btnLinks.setOnClickListener(new View.OnClickListener() { //Присваем действие на нажатие
             @Override
             public void onClick(View v) {
-                fragmentManager.setFragment(new LangMenuFragment(), true);
+                fragmentManager.setFragment(new LangMenuFragment(), true);  //Сеттим фрагмент с материалами
             }
         });
-        btnAbout.setOnClickListener(new View.OnClickListener() {
+        btnAbout.setOnClickListener(new View.OnClickListener() {  //Присваем действие на нажатие
             @Override
             public void onClick(View v) {
+                //Определяем диалог
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 builder.setTitle("About");
                 View view = (View) getActivity().getLayoutInflater()
-                        .inflate(R.layout.dialog_about, null);
-                builder.setView(view);
+                        .inflate(R.layout.dialog_about, null); //инфлейтим лэйаут для диалога
+                builder.setView(view); //присваем диалогу вью по лэйауту
                 AlertDialog alert = builder.create();
-                alert.show();
+                alert.show(); //показываем диалог
 
 
 

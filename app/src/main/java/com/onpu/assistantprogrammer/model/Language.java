@@ -8,6 +8,9 @@ import java.util.StringTokenizer;
 /**
  * Crafted by veek on 22.05.16 with love ♥
  */
+
+//Модельный класс для языков, опредеялем id, название языка, описание, ссылка на тектовые материалы,
+//ссылка на видео-материалы, изображение(лого)
 public class Language {
     public int id;
     public String name;
@@ -22,6 +25,7 @@ public class Language {
         this.descr = descr;
         this.tUrl = tUrl;
         this.vUrl = vUrl;
+        //Изображение определяется по id через switch
         switch (id){
             case 0:
                 img = R.drawable.python;

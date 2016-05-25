@@ -28,6 +28,8 @@ import java.util.List;
 /**
  * Crafted by veek on 22.05.16 with love ♥
  */
+
+// Тут всё по тому же принципу что и в LanguageMenuAdapter, кроме цикла на 56й строке
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MViewHolder>{
     public List<Item> items;
     public List<Item> currentItems = new ArrayList<>();
@@ -42,16 +44,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public MViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item, parent, false);
-        MViewHolder mvh = new MViewHolder(view);
+        MViewHolder mvh = new MViewHolder(view);         //то же самое что и в LanguageMenuAdapter
         return mvh;
     }
 
     @Override
     public void onBindViewHolder(MViewHolder holder, final int position) {
 
-            holder.textView.setText(items.get(currentID).getText());
+            holder.textView.setText(items.get(currentID).text);
             holder.linearLayout.removeAllViews();
             for (i = 0; i < items.get(currentID).relations.length; i++) {
+                //В этом цикле мы добавляем кнопки соответственно связям и их кол-ву
                 final Button mBtn = new Button(context);
                 String text = items.get(items.get(currentID).relations[i]).text.toString();
                 mBtn.setText(text);
