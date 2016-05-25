@@ -51,6 +51,16 @@ public class CustomFragmentManager {
         fragmentTransaction.commit();
     }
 
+    public void removeFragment(Fragment fragment){
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.remove(fragment);
+        fragmentTransaction.commit();
+    }
+
+    public int getSize(){
+        return fragmentManager.getBackStackEntryCount();
+    }
+
 
     public FragmentManager getFragmentManager() {
         return fragmentManager;

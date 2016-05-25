@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.onpu.assistantprogrammer.R;
 import com.onpu.assistantprogrammer.fragment.LangMenuFragment;
+import com.onpu.assistantprogrammer.fragment.MenuFragment;
 import com.onpu.assistantprogrammer.fragment.TestFragment;
 import com.onpu.assistantprogrammer.model.Language;
 
@@ -63,7 +64,6 @@ public class LanguageMenuAdapter extends RecyclerView.Adapter<LanguageMenuAdapte
                             public void onClick(DialogInterface dialog, int which) {
                                 Uri uri = Uri.parse(languages.get(position).vUrl);
                                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                                fragmentManager.setFragment(new LangMenuFragment(), false);
                                 context.startActivity(intent);
                             }
                         })
@@ -72,22 +72,15 @@ public class LanguageMenuAdapter extends RecyclerView.Adapter<LanguageMenuAdapte
                             public void onClick(DialogInterface dialog, int which) {
                                 Uri uri = Uri.parse(languages.get(position).tUrl);
                                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                                fragmentManager.setFragment(new LangMenuFragment(), false);
                                 context.startActivity(intent);
                             }
                         })
-                        .setNeutralButton("Закрыть", new DialogInterface.OnClickListener() {
+                        .setNeutralButton("Меню", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                fragmentManager.setFragment(new LangMenuFragment(), false);
+                                fragmentManager.setFragment(new MenuFragment(), false);
                             }
-                        })
-                .setOnCancelListener(new DialogInterface.OnCancelListener() {
-                    @Override
-                    public void onCancel(DialogInterface dialog) {
-                        fragmentManager.setFragment(new LangMenuFragment(), false);
-                    }
-                });
+                        });
                 AlertDialog alert = builder.create();
                 alert.show();
             }

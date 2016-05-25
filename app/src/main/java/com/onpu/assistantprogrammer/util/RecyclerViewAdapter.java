@@ -160,7 +160,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                                                         public void onClick(DialogInterface dialog, int which) {
                                                             Uri uri = Uri.parse(languages.get(myID).vUrl);
                                                             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                                                            fragmentManager.setFragment(new TestFragment(), false);
                                                             context.startActivity(intent);
                                                         }
                                                     })
@@ -169,22 +168,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                                                         public void onClick(DialogInterface dialog, int which) {
                                                             Uri uri = Uri.parse(languages.get(myID).tUrl);
                                                             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                                                            fragmentManager.setFragment(new TestFragment(), false);
                                                             context.startActivity(intent);
                                                         }
                                                     })
-                                                    .setNeutralButton("Закрыть", new DialogInterface.OnClickListener() {
+                                                    .setNeutralButton("Меню", new DialogInterface.OnClickListener() {
                                                         @Override
                                                         public void onClick(DialogInterface dialog, int which) {
-                                                            fragmentManager.setFragment(new TestFragment(), false);
+                                                            fragmentManager.setFragment(new MenuFragment(), false);
                                                         }
-                                                    })
-                                                     .setOnCancelListener(new DialogInterface.OnCancelListener() {
-                                                @Override
-                                                public void onCancel(DialogInterface dialog) {
-                                                    fragmentManager.setFragment(new TestFragment(), false);
-                                                }
-                                            });
+                                                    });
                                             AlertDialog alert = builder.create();
                                             alert.show();
                                         }
