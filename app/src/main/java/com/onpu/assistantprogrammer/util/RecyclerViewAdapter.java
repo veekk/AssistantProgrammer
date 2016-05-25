@@ -1,4 +1,4 @@
-package com.onpu.assistantprogrammer.Utils;
+package com.onpu.assistantprogrammer.util;
 
 
 import android.content.Context;
@@ -13,9 +13,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.onpu.assistantprogrammer.Fragments.MenuFragment;
-import com.onpu.assistantprogrammer.Fragments.TestFragment;
-import com.onpu.assistantprogrammer.Item;
+import com.onpu.assistantprogrammer.fragment.MenuFragment;
+import com.onpu.assistantprogrammer.fragment.TestFragment;
+import com.onpu.assistantprogrammer.model.Item;
 import com.onpu.assistantprogrammer.R;
 
 import java.util.ArrayList;
@@ -98,17 +98,24 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
                             AlertDialog.Builder builder = new AlertDialog.Builder(context);
                             ImageView imgView = new ImageView(context);
+                            imgView.setPadding(8,8,8,8);
                             imgView.setImageResource(image);
                             builder.setTitle("Язык программирования для Вас - "+language)
                                     .setView(imgView)
                                     .setCancelable(false)
+                                    .setNegativeButton("Материалы", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+
+                                        }
+                                    })
                                     .setPositiveButton("Пройти тест заново", new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
                                             fragmentManager.setFragment(new TestFragment(), false);
                                         }
                                     })
-                                    .setNegativeButton("Меню", new DialogInterface.OnClickListener() {
+                                    .setNeutralButton("Меню", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     fragmentManager.setFragment(new MenuFragment(), false);
@@ -117,7 +124,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                             AlertDialog alert = builder.create();
                             alert.show();
                         }else {currentItems.add(items.get(currentID));
-                            notifyDataSetChanged();}
+                            notifyItemChanged(0);}
                     }
                 });
                 LinearLayout.LayoutParams params = new
@@ -141,16 +148,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         RecyclerView mRecView;
         TextView textView;
         LinearLayout linearLayout;
-       // Button mBtn = new Button(context);
 
         MViewHolder(View itemView){
             super(itemView);
             linearLayout = (LinearLayout)itemView.findViewById(R.id.lLay3);
             mRecView = (RecyclerView)itemView.findViewById(R.id.mRecView);
             textView = (TextView) itemView.findViewById(R.id.textView);
-           // LinearLayout.LayoutParams params = new LinearLayout.LayoutParams()
-            //mBtn = (Button) itemView.findViewById(R.id.button2);
-
         }
     }
 

@@ -1,4 +1,4 @@
-package com.onpu.assistantprogrammer.Fragments;
+package com.onpu.assistantprogrammer.fragment;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -8,10 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.onpu.assistantprogrammer.Item;
+import com.onpu.assistantprogrammer.model.Item;
 import com.onpu.assistantprogrammer.R;
-import com.onpu.assistantprogrammer.Utils.CustomFragmentManager;
-import com.onpu.assistantprogrammer.Utils.RecyclerViewAdapter;
+import com.onpu.assistantprogrammer.util.CustomFragmentManager;
+import com.onpu.assistantprogrammer.util.RecyclerViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

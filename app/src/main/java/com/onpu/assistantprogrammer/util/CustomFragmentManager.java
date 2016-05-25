@@ -1,4 +1,4 @@
-package com.onpu.assistantprogrammer.Utils;
+package com.onpu.assistantprogrammer.util;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -41,11 +41,12 @@ public class CustomFragmentManager {
     public void setFragment(Fragment fragment, boolean addToBackStack) {
 
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(containerResId, fragment);
+
 
         if (addToBackStack) {
             fragmentTransaction.addToBackStack(null);
-        }
+            fragmentTransaction.add(containerResId, fragment);
+        } else     fragmentTransaction.replace(containerResId, fragment);
 
         fragmentTransaction.commit();
     }

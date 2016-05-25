@@ -1,4 +1,4 @@
-package com.onpu.assistantprogrammer;
+package com.onpu.assistantprogrammer.model;
 
 import java.util.ArrayList;
 import java.util.List;

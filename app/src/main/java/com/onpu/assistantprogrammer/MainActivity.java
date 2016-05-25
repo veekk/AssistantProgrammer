@@ -3,8 +3,8 @@ package com.onpu.assistantprogrammer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.onpu.assistantprogrammer.Fragments.MenuFragment;
-import com.onpu.assistantprogrammer.Utils.CustomFragmentManager;
+import com.onpu.assistantprogrammer.fragment.MenuFragment;
+import com.onpu.assistantprogrammer.util.CustomFragmentManager;
 
 public class MainActivity extends AppCompatActivity {
 
